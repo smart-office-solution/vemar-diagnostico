@@ -53,15 +53,28 @@ textarea, input[type="email"] {
   margin-top: 10px;
 }
 
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.back {
+  background: #ddd;
+  color: black;
+}
+
 button {
-  width: 100%;
+  flex: 1;
   padding: 15px;
   margin-top: 20px;
   border: none;
-  background: black;
-  color: white;
   border-radius: 8px;
   font-size: 16px;
+}
+
+.next {
+  background: black;
+  color: white;
 }
 
 .hidden { display: none; }
@@ -84,108 +97,85 @@ button {
 
 <h1>Diagnóstico de captación de pacientes</h1>
 
-<p style="text-align:center; font-size:16px; margin-top:5px;">
+<p style="text-align:center; font-size:16px; margin-top:5px; font-weight:bold;">
 ¿Está tu clínica captando todo su potencial?
 </p>
 
-<p>Vas a responder unas preguntas rápidas sobre cómo está funcionando actualmente la captación de pacientes en tu clínica.</p>
-<p>Puedes elegir mas de 1 respuesta si lo consideras necesario.</p>
-<p>No hay respuestas correctas o incorrectas — esto nos ayuda a entender tu situación real.</p>
+<p>Responde unas preguntas rápidas sobre vuestra captación actual.</p>
+<p>Puedes seleccionar más de una opción si lo necesitas.</p>
 <p>⏱ Te llevará menos de 2 minutos</p>
-<p>Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una auditoría clara con oportunidades de mejora.</p>
+<p>Con tus respuestas te prepararemos un análisis con oportunidades de mejora.</p>
 
-<button type="button" onclick="next()">Empezar diagnóstico</button>
+<button type="button" class="next" onclick="next()">Empezar diagnóstico</button>
 
 </div>
+
+<!-- PREGUNTAS (todas con atrás + siguiente) -->
 
 <!-- 1 -->
 <div class="card step hidden">
 <h2>01 ¿Cómo llegan hoy la mayoría de vuestros nuevos pacientes a la clínica?</h2>
-<label><input type="checkbox" name="Q1[]" value="A"> Por recomendación de otros pacientes (boca a boca)</label>
-<label><input type="checkbox" name="Q1[]" value="B"> Nos encuentran en Google / Google Maps</label>
-<label><input type="checkbox" name="Q1[]" value="C"> A través de nuestra web o redes sociales</label>
-<label><input type="checkbox" name="Q1[]" value="D"> No lo sabemos con exactitud</label>
-<button type="button" onclick="next()">Siguiente</button>
+<label><input type="checkbox" name="Q1[]"> Por recomendación de otros pacientes (boca a boca)</label>
+<label><input type="checkbox" name="Q1[]"> Nos encuentran en Google / Google Maps</label>
+<label><input type="checkbox" name="Q1[]"> A través de nuestra web o redes sociales</label>
+<label><input type="checkbox" name="Q1[]"> No lo sabemos con exactitud</label>
+<div class="buttons">
+<button type="button" class="back" onclick="prev()">Atrás</button>
+<button type="button" class="next" onclick="next()">Siguiente</button>
+</div>
 </div>
 
 <!-- 2 -->
 <div class="card step hidden">
 <h2>02 Cuando alguien visita vuestra web, ¿qué acción puede hacer para contactaros en ese mismo momento?</h2>
-<label><input type="checkbox" name="Q2[]" value="A"> Llamar por teléfono (si está disponible)</label>
-<label><input type="checkbox" name="Q2[]" value="B"> Rellenar el formulario de contacto</label>
-<label><input type="checkbox" name="Q2[]" value="C"> Escribir por WhatsApp o chat</label>
-<label><input type="checkbox" name="Q2[]" value="D"> Ninguna opción cómoda o directa</label>
-<button type="button" onclick="next()">Siguiente</button>
+<label><input type="checkbox" name="Q2[]"> Llamar por teléfono</label>
+<label><input type="checkbox" name="Q2[]"> Formulario</label>
+<label><input type="checkbox" name="Q2[]"> WhatsApp o chat</label>
+<label><input type="checkbox" name="Q2[]"> Ninguna</label>
+<div class="buttons">
+<button type="button" class="back" onclick="prev()">Atrás</button>
+<button type="button" class="next" onclick="next()">Siguiente</button>
+</div>
 </div>
 
 <!-- 3 -->
 <div class="card step hidden">
-<h2>03 ¿Qué pasa cuando alguien quiere pedir información o cita fuera de vuestro horario de atención?</h2>
-<label><input type="checkbox" name="Q3[]" value="A"> No pasa nada, esperan al día siguiente</label>
-<label><input type="checkbox" name="Q3[]" value="B"> Tenemos un bot o respuesta automática</label>
-<label><input type="checkbox" name="Q3[]" value="C"> Dejamos un mensaje grabado con el teléfono</label>
-<label><input type="checkbox" name="Q3[]" value="D"> Sinceramente, esos contactos se pierden</label>
-<button type="button" onclick="next()">Siguiente</button>
+<h2>03 ¿Qué pasa fuera de horario?</h2>
+<label><input type="checkbox" name="Q3[]"> Esperan</label>
+<label><input type="checkbox" name="Q3[]"> Bot</label>
+<label><input type="checkbox" name="Q3[]"> Mensaje</label>
+<label><input type="checkbox" name="Q3[]"> Se pierden</label>
+<div class="buttons">
+<button type="button" class="back" onclick="prev()">Atrás</button>
+<button type="button" class="next" onclick="next()">Siguiente</button>
+</div>
 </div>
 
 <!-- 4 -->
 <div class="card step hidden">
-<h2>04 Si un paciente busca en Google 'clínica dental Burgos', ¿por qué debería elegiros a vosotros?</h2>
-<label><input type="checkbox" name="Q4[]" value="A"> Por nuestras reseñas y reputación online</label>
-<label><input type="checkbox" name="Q4[]" value="B"> Por servicios específicos que otros no tienen (GBT, ortodoncia invisible...)</label>
-<label><input type="checkbox" name="Q4[]" value="C"> Por precio o promociones</label>
-<label><input type="checkbox" name="Q4[]" value="D"> Honestamente, no tenemos un mensaje diferenciador claro</label>
+<h2>04 ¿Por qué deberían elegiros?</h2>
+<label><input type="checkbox" name="Q4[]"> Reseñas</label>
+<label><input type="checkbox" name="Q4[]"> Servicios</label>
+<label><input type="checkbox" name="Q4[]"> Precio</label>
+<label><input type="checkbox" name="Q4[]"> Sin diferenciación</label>
 
 <textarea name="Q4_otros" placeholder="Otros motivos..."></textarea>
 
-<button type="button" onclick="next()">Siguiente</button>
+<div class="buttons">
+<button type="button" class="back" onclick="prev()">Atrás</button>
+<button type="button" class="next" onclick="next()">Siguiente</button>
 </div>
-
-<!-- 5 -->
-<div class="card step hidden">
-<h2>05 ¿Estáis usando activamente vuestras reseñas de Google para atraer pacientes nuevos?</h2>
-<label><input type="checkbox" name="Q5[]" value="A"> Sí, aparecen en nuestra web y las compartimos en redes</label>
-<label><input type="checkbox" name="Q5[]" value="B"> Están en Google pero no las hemos integrado en otro sitio</label>
-<label><input type="checkbox" name="Q5[]" value="C"> No tenemos sistema para pedir reseñas nuevas</label>
-<label><input type="checkbox" name="Q5[]" value="D"> No sabemos exactamente cuántas reseñas tenemos</label>
-<button type="button" onclick="next()">Siguiente</button>
-</div>
-
-<!-- 6 -->
-<div class="card step hidden">
-<h2>06 ¿Cuántos pacientes nuevos os han contactado directamente a través de Instagram en el último mes?</h2>
-<label><input type="checkbox" name="Q6[]" value="A"> Más de 5 contactos directos desde Instagram</label>
-<label><input type="checkbox" name="Q6[]" value="B"> 1 o 2, pero no de forma regular</label>
-<label><input type="checkbox" name="Q6[]" value="C"> Ninguno que recordemos</label>
-<label><input type="checkbox" name="Q6[]" value="D"> No tenemos manera de saberlo</label>
-<button type="button" onclick="next()">Siguiente</button>
-</div>
-
-<!-- 7 -->
-<div class="card step hidden">
-<h2>07 Si mañana entran 20 visitas nuevas a vuestra web, ¿cuántas creéis que terminan pidiendo cita?</h2>
-<label><input type="checkbox" name="Q7[]" value="A"> Entre 3 y 5 (conversión alta)</label>
-<label><input type="checkbox" name="Q7[]" value="B"> 1 o 2 como mucho</label>
-<label><input type="checkbox" name="Q7[]" value="C"> Probablemente ninguna</label>
-<label><input type="checkbox" name="Q7[]" value="D"> No tenemos datos para saberlo</label>
-<button type="button" onclick="next()">Siguiente</button>
-</div>
-
-<!-- 8 -->
-<div class="card step hidden">
-<h2>08 ¿Cuál sería para vosotros el resultado más valioso de mejorar vuestra captación digital en los próximos 90 días?</h2>
-<label><input type="checkbox" name="Q8[]" value="A"> Tener un flujo estable de pacientes nuevos cada mes</label>
-<label><input type="checkbox" name="Q8[]" value="B"> Reducir la dependencia del boca a boca</label>
-<label><input type="checkbox" name="Q8[]" value="C"> Posicionarse como la clínica premium de Burgos</label>
-<label><input type="checkbox" name="Q8[]" value="D"> Conseguir más pacientes para servicios de alto valor (implantes, ortodoncia)</label>
-<button type="button" onclick="next()">Siguiente</button>
 </div>
 
 <!-- EMAIL -->
 <div class="card step hidden">
 <h2>Déjanos tu email</h2>
 <input type="email" name="email" required>
-<button type="submit">Enviar diagnóstico</button>
+
+<div class="buttons">
+<button type="button" class="back" onclick="prev()">Atrás</button>
+<button type="submit" class="next">Enviar</button>
+</div>
 </div>
 
 </form>
@@ -200,6 +190,13 @@ const progress = document.getElementById("progress");
 function next() {
   steps[step].classList.add("hidden");
   step++;
+  steps[step].classList.remove("hidden");
+  progress.style.width = (step/(steps.length-1))*100 + "%";
+}
+
+function prev() {
+  steps[step].classList.add("hidden");
+  step--;
   steps[step].classList.remove("hidden");
   progress.style.width = (step/(steps.length-1))*100 + "%";
 }
