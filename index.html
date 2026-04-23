@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diagnóstico Digital</title>
+<title>Diagnóstico de captación de pacientes</title>
 
 <style>
 body {
@@ -39,18 +39,8 @@ body {
   transition: 0.3s;
 }
 
-h1 {
-  font-size: 22px;
-}
-
-h2 {
-  font-size: 18px;
-}
-
-p {
-  font-size: 14px;
-  color: #666;
-}
+h1 { font-size: 22px; }
+h2 { font-size: 18px; }
 
 label {
   display: block;
@@ -74,9 +64,7 @@ button {
   font-size: 16px;
 }
 
-.hidden {
-  display: none;
-}
+.hidden { display: none; }
 </style>
 </head>
 
@@ -84,7 +72,7 @@ button {
 
 <div class="container">
 
-<form id="quizForm" action="https://formsubmit.co/silviagsierra@gmail.com" method="POST">
+<form action="https://formsubmit.co/silviagsierra@gmail.com" method="POST">
 
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://smart-office-solution.github.io/vemar-diagnostico/gracias.html">
@@ -93,31 +81,26 @@ button {
 
 <!-- INTRO -->
 <div class="card step">
-<h1>Diagnóstico de captación digital</h1>
 
-<p>
-Vas a responder unas preguntas rápidas sobre cómo está funcionando actualmente la captación de pacientes en tu clínica.
+<h1>Diagnóstico de captación de pacientes</h1>
+
+<p style="text-align:center; font-size:16px; margin-top:5px;">
+¿Está tu clínica captando todo su potencial?
 </p>
 
-<p>
-No hay respuestas correctas o incorrectas — esto nos ayuda a entender tu situación real.
-</p>
-
-<p>
-⏱ Te llevará menos de 2 minutos
-</p>
-
-<p>
-Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una auditoría clara con oportunidades de mejora.
-</p>
+<p>Vas a responder unas preguntas rápidas sobre cómo está funcionando actualmente la captación de pacientes en tu clínica.</p>
+<p>Puedes elegir mas de 1 respuesta si lo consideras necesario.</p>
+<p>No hay respuestas correctas o incorrectas — esto nos ayuda a entender tu situación real.</p>
+<p>⏱ Te llevará menos de 2 minutos</p>
+<p>Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una auditoría clara con oportunidades de mejora.</p>
 
 <button type="button" onclick="next()">Empezar diagnóstico</button>
+
 </div>
 
 <!-- 1 -->
 <div class="card step hidden">
 <h2>01 ¿Cómo llegan hoy la mayoría de vuestros nuevos pacientes a la clínica?</h2>
-<p>Identifica los canales de captación actuales para entender de dónde viene el negocio.</p>
 <label><input type="checkbox" name="Q1[]" value="A"> Por recomendación de otros pacientes (boca a boca)</label>
 <label><input type="checkbox" name="Q1[]" value="B"> Nos encuentran en Google / Google Maps</label>
 <label><input type="checkbox" name="Q1[]" value="C"> A través de nuestra web o redes sociales</label>
@@ -128,7 +111,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 2 -->
 <div class="card step hidden">
 <h2>02 Cuando alguien visita vuestra web, ¿qué acción puede hacer para contactaros en ese mismo momento?</h2>
-<p>Evalúa la fricción real en el canal digital principal.</p>
 <label><input type="checkbox" name="Q2[]" value="A"> Llamar por teléfono (si está disponible)</label>
 <label><input type="checkbox" name="Q2[]" value="B"> Rellenar el formulario de contacto</label>
 <label><input type="checkbox" name="Q2[]" value="C"> Escribir por WhatsApp o chat</label>
@@ -139,7 +121,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 3 -->
 <div class="card step hidden">
 <h2>03 ¿Qué pasa cuando alguien quiere pedir información o cita fuera de vuestro horario de atención?</h2>
-<p>Detecta la brecha de captación fuera de horario.</p>
 <label><input type="checkbox" name="Q3[]" value="A"> No pasa nada, esperan al día siguiente</label>
 <label><input type="checkbox" name="Q3[]" value="B"> Tenemos un bot o respuesta automática</label>
 <label><input type="checkbox" name="Q3[]" value="C"> Dejamos un mensaje grabado con el teléfono</label>
@@ -150,7 +131,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 4 -->
 <div class="card step hidden">
 <h2>04 Si un paciente busca en Google 'clínica dental Burgos', ¿por qué debería elegiros a vosotros?</h2>
-<p>Mide si el diferenciador real está comunicado o enterrado.</p>
 <label><input type="checkbox" name="Q4[]" value="A"> Por nuestras reseñas y reputación online</label>
 <label><input type="checkbox" name="Q4[]" value="B"> Por servicios específicos que otros no tienen (GBT, ortodoncia invisible...)</label>
 <label><input type="checkbox" name="Q4[]" value="C"> Por precio o promociones</label>
@@ -164,7 +144,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 5 -->
 <div class="card step hidden">
 <h2>05 ¿Estáis usando activamente vuestras reseñas de Google para atraer pacientes nuevos?</h2>
-<p>Diagnostica si el activo de reputación está trabajando o dormido.</p>
 <label><input type="checkbox" name="Q5[]" value="A"> Sí, aparecen en nuestra web y las compartimos en redes</label>
 <label><input type="checkbox" name="Q5[]" value="B"> Están en Google pero no las hemos integrado en otro sitio</label>
 <label><input type="checkbox" name="Q5[]" value="C"> No tenemos sistema para pedir reseñas nuevas</label>
@@ -175,7 +154,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 6 -->
 <div class="card step hidden">
 <h2>06 ¿Cuántos pacientes nuevos os han contactado directamente a través de Instagram en el último mes?</h2>
-<p>Mide el retorno real de la actividad en redes.</p>
 <label><input type="checkbox" name="Q6[]" value="A"> Más de 5 contactos directos desde Instagram</label>
 <label><input type="checkbox" name="Q6[]" value="B"> 1 o 2, pero no de forma regular</label>
 <label><input type="checkbox" name="Q6[]" value="C"> Ninguno que recordemos</label>
@@ -186,7 +164,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 7 -->
 <div class="card step hidden">
 <h2>07 Si mañana entran 20 visitas nuevas a vuestra web, ¿cuántas creéis que terminan pidiendo cita?</h2>
-<p>Genera conciencia sobre la tasa de conversión real (o la ausencia de ella).</p>
 <label><input type="checkbox" name="Q7[]" value="A"> Entre 3 y 5 (conversión alta)</label>
 <label><input type="checkbox" name="Q7[]" value="B"> 1 o 2 como mucho</label>
 <label><input type="checkbox" name="Q7[]" value="C"> Probablemente ninguna</label>
@@ -197,7 +174,6 @@ Con tus respuestas, junto al análisis de tu web y redes, te prepararemos una au
 <!-- 8 -->
 <div class="card step hidden">
 <h2>08 ¿Cuál sería para vosotros el resultado más valioso de mejorar vuestra captación digital en los próximos 90 días?</h2>
-<p>Identifica el motivador clave para conectar la solución con su objetivo real.</p>
 <label><input type="checkbox" name="Q8[]" value="A"> Tener un flujo estable de pacientes nuevos cada mes</label>
 <label><input type="checkbox" name="Q8[]" value="B"> Reducir la dependencia del boca a boca</label>
 <label><input type="checkbox" name="Q8[]" value="C"> Posicionarse como la clínica premium de Burgos</label>
