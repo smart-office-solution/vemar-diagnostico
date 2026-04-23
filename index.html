@@ -1,234 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diagnóstico Digital - Vemar Dental</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Digital</title>
 
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #f5f7fa;
-      margin: 0;
-      padding: 10px;
-    }
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
 
-    .container {
-      max-width: 100%;
-      margin: auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-    }
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
 
-    h1 {
-      text-align: center;
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+}
 
-    .subtitle {
-      text-align: center;
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
+.progress {
+  height: 6px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
 
-    .top-brand {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      margin-bottom: 10px;
-    }
+.progress-bar {
+  height: 6px;
+  background: black;
+  width: 0%;
+  border-radius: 10px;
+  transition: 0.3s;
+}
 
-    .section-title {
-      margin-top: 25px;
-      font-size: 12px;
-      color: #999;
-      font-weight: bold;
-    }
+h2 {
+  font-size: 18px;
+}
 
-    .question {
-      margin-bottom: 20px;
-      padding: 15px;
-      border-radius: 8px;
-      background: #fafafa;
-    }
+label {
+  display: block;
+  margin: 10px 0;
+  font-size: 15px;
+}
 
-    .question p {
-      font-weight: bold;
-      font-size: 15px;
-    }
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
 
-    label {
-      display: block;
-      margin: 8px 0;
-      font-size: 14px;
-    }
-
-    input[type="checkbox"] {
-      transform: scale(1.2);
-      margin-right: 8px;
-    }
-
-    input[type="email"], textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      margin-top: 10px;
-      font-size: 14px;
-      font-family: inherit;
-    }
-
-    textarea {
-      resize: none;
-      overflow: hidden;
-    }
-
-    button {
-      width: 100%;
-      padding: 16px;
-      background: black;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      margin-top: 20px;
-    }
-  </style>
+.hidden {
+  display: none;
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-<p class="top-brand">
-Smart Office · Sistemas de captación para clínicas
-</p>
+<form id="quizForm" action="https://formsubmit.co/silviagsierra@gmail.com" method="POST">
 
-<h1>Diagnóstico Digital</h1>
-
-<p class="subtitle">
-Auditoría gratuita de captación para clínicas dentales.<br>
-Descubre en menos de 2 minutos qué está frenando tu crecimiento.
-</p>
-
-<form action="https://formsubmit.co/silviagsierra@gmail.com" method="POST">
-
-<input type="hidden" name="_subject" value="Nuevo diagnóstico Vemar Dental">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_next" value="https://smart-office-solution.github.io/vemar-diagnostico/gracias.html">
 
-<div class="section-title">■ SITUACIÓN ACTUAL</div>
+<div class="progress"><div class="progress-bar" id="progress"></div></div>
 
-<div class="question">
-<p>01 ¿Cómo llegan hoy la mayoría de vuestros nuevos pacientes a la clínica?</p>
-<label><input type="checkbox" name="Q1[]" value="Recomendación"> Por recomendación de otros pacientes (boca a boca)</label>
-<label><input type="checkbox" name="Q1[]" value="Google"> Nos encuentran en Google / Google Maps</label>
-<label><input type="checkbox" name="Q1[]" value="Web"> A través de nuestra web o redes sociales</label>
-<label><input type="checkbox" name="Q1[]" value="No sabemos"> No lo sabemos con exactitud</label>
+<!-- PREGUNTA 1 -->
+<div class="card step">
+<h2>¿Cómo llegan hoy la mayoría de vuestros nuevos pacientes?</h2>
+<label><input type="checkbox" name="Q1[]" value="Recomendación"> Recomendación</label>
+<label><input type="checkbox" name="Q1[]" value="Google"> Google</label>
+<label><input type="checkbox" name="Q1[]" value="Web"> Web o redes</label>
+<label><input type="checkbox" name="Q1[]" value="No sabemos"> No sabemos</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ CONVERSIÓN WEB</div>
-
-<div class="question">
-<p>02 Cuando alguien visita vuestra web, ¿qué acción puede hacer para contactaros en ese mismo momento?</p>
-<label><input type="checkbox" name="Q2[]" value="Llamar"> Llamar por teléfono (si está disponible)</label>
-<label><input type="checkbox" name="Q2[]" value="Formulario"> Rellenar el formulario de contacto</label>
-<label><input type="checkbox" name="Q2[]" value="WhatsApp"> Escribir por WhatsApp o chat</label>
-<label><input type="checkbox" name="Q2[]" value="Ninguna"> Ninguna opción cómoda o directa</label>
+<!-- PREGUNTA 2 -->
+<div class="card step hidden">
+<h2>¿Qué acción puede hacer alguien en vuestra web?</h2>
+<label><input type="checkbox" name="Q2[]" value="Llamar"> Llamar</label>
+<label><input type="checkbox" name="Q2[]" value="Formulario"> Formulario</label>
+<label><input type="checkbox" name="Q2[]" value="WhatsApp"> WhatsApp</label>
+<label><input type="checkbox" name="Q2[]" value="Ninguna"> Ninguna</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ DISPONIBILIDAD</div>
-
-<div class="question">
-<p>03 ¿Qué pasa cuando alguien quiere pedir información o cita fuera de vuestro horario de atención?</p>
-<label><input type="checkbox" name="Q3[]" value="Esperan"> No pasa nada, esperan al día siguiente</label>
-<label><input type="checkbox" name="Q3[]" value="Bot"> Tenemos un bot o respuesta automática</label>
-<label><input type="checkbox" name="Q3[]" value="Mensaje"> Dejamos un mensaje grabado con el teléfono</label>
-<label><input type="checkbox" name="Q3[]" value="Se pierden"> Sinceramente, esos contactos se pierden</label>
+<!-- PREGUNTA 3 -->
+<div class="card step hidden">
+<h2>¿Qué pasa fuera de horario?</h2>
+<label><input type="checkbox" name="Q3[]" value="Esperan"> Esperan</label>
+<label><input type="checkbox" name="Q3[]" value="Bot"> Bot</label>
+<label><input type="checkbox" name="Q3[]" value="Mensaje"> Mensaje</label>
+<label><input type="checkbox" name="Q3[]" value="Se pierden"> Se pierden</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ DIFERENCIACIÓN</div>
+<!-- PREGUNTA 4 -->
+<div class="card step hidden">
+<h2>¿Por qué deberían elegiros?</h2>
+<label><input type="checkbox" name="Q4[]" value="Reseñas"> Reseñas</label>
+<label><input type="checkbox" name="Q4[]" value="Servicios"> Servicios únicos</label>
+<label><input type="checkbox" name="Q4[]" value="Precio"> Precio</label>
+<label><input type="checkbox" name="Q4[]" value="Sin diferenciación"> Sin diferenciación</label>
 
-<div class="question">
-<p>04 Si un paciente busca en Google 'clínica dental Burgos', ¿por qué debería elegiros a vosotros?</p>
-<label><input type="checkbox" name="Q4[]" value="Reseñas"> Por nuestras reseñas y reputación online</label>
-<label><input type="checkbox" name="Q4[]" value="Servicios"> Por servicios específicos que otros no tienen (GBT, ortodoncia invisible...)</label>
-<label><input type="checkbox" name="Q4[]" value="Precio"> Por precio o promociones</label>
-<label><input type="checkbox" name="Q4[]" value="Sin diferenciación"> Honestamente, no tenemos un mensaje diferenciador claro</label>
+<textarea name="Q4_otros" placeholder="Otros motivos..." oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
 
-<label>Otros motivos:</label>
-<textarea name="Q4_otros" rows="2" placeholder="Especifica otros motivos..." oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ PRUEBA SOCIAL</div>
-
-<div class="question">
-<p>05 ¿Estáis usando activamente vuestras reseñas de Google para atraer pacientes nuevos?</p>
-<label><input type="checkbox" name="Q5[]" value="Activas"> Sí, aparecen en nuestra web y las compartimos en redes</label>
-<label><input type="checkbox" name="Q5[]" value="Solo Google"> Están en Google pero no las hemos integrado en otro sitio</label>
-<label><input type="checkbox" name="Q5[]" value="Sin sistema"> No tenemos sistema para pedir reseñas nuevas</label>
-<label><input type="checkbox" name="Q5[]" value="No sabemos"> No sabemos exactamente cuántas reseñas tenemos</label>
+<!-- PREGUNTA 5 -->
+<div class="card step hidden">
+<h2>¿Usáis reseñas activamente?</h2>
+<label><input type="checkbox" name="Q5[]" value="Activas"> Sí</label>
+<label><input type="checkbox" name="Q5[]" value="Solo Google"> Solo Google</label>
+<label><input type="checkbox" name="Q5[]" value="No sistema"> Sin sistema</label>
+<label><input type="checkbox" name="Q5[]" value="No sabemos"> No sabemos</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ REDES SOCIALES</div>
-
-<div class="question">
-<p>06 ¿Cuántos pacientes nuevos os han contactado directamente a través de Instagram en el último mes?</p>
-<label><input type="checkbox" name="Q6[]" value="+5"> Más de 5 contactos directos desde Instagram</label>
-<label><input type="checkbox" name="Q6[]" value="1-2"> 1 o 2, pero no de forma regular</label>
-<label><input type="checkbox" name="Q6[]" value="0"> Ninguno que recordemos</label>
-<label><input type="checkbox" name="Q6[]" value="No sabemos"> No tenemos manera de saberlo</label>
+<!-- PREGUNTA 6 -->
+<div class="card step hidden">
+<h2>Contactos desde Instagram</h2>
+<label><input type="checkbox" name="Q6[]" value="+5"> +5</label>
+<label><input type="checkbox" name="Q6[]" value="1-2"> 1-2</label>
+<label><input type="checkbox" name="Q6[]" value="0"> 0</label>
+<label><input type="checkbox" name="Q6[]" value="No sabemos"> No sabemos</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ AUTOMATIZACIÓN</div>
-
-<div class="question">
-<p>07 Si mañana entran 20 visitas nuevas a vuestra web, ¿cuántas creéis que terminan pidiendo cita?</p>
-<label><input type="checkbox" name="Q7[]" value="Alta"> Entre 3 y 5 (conversión alta)</label>
-<label><input type="checkbox" name="Q7[]" value="Media"> 1 o 2 como mucho</label>
-<label><input type="checkbox" name="Q7[]" value="Baja"> Probablemente ninguna</label>
-<label><input type="checkbox" name="Q7[]" value="Sin datos"> No tenemos datos para saberlo</label>
+<!-- PREGUNTA 7 -->
+<div class="card step hidden">
+<h2>Conversión estimada</h2>
+<label><input type="checkbox" name="Q7[]" value="Alta"> 3-5</label>
+<label><input type="checkbox" name="Q7[]" value="Media"> 1-2</label>
+<label><input type="checkbox" name="Q7[]" value="Baja"> Ninguna</label>
+<label><input type="checkbox" name="Q7[]" value="Sin datos"> Sin datos</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="section-title">■ VISIÓN Y OBJETIVOS</div>
-
-<div class="question">
-<p>08 ¿Cuál sería para vosotros el resultado más valioso de mejorar vuestra captación digital en los próximos 90 días?</p>
-<label><input type="checkbox" name="Q8[]" value="Flujo"> Tener un flujo estable de pacientes nuevos cada mes</label>
-<label><input type="checkbox" name="Q8[]" value="Menos boca a boca"> Reducir la dependencia del boca a boca</label>
-<label><input type="checkbox" name="Q8[]" value="Premium"> Posicionarse como la clínica premium de Burgos</label>
-<label><input type="checkbox" name="Q8[]" value="Alto valor"> Conseguir más pacientes para servicios de alto valor</label>
+<!-- PREGUNTA 8 -->
+<div class="card step hidden">
+<h2>Objetivo principal</h2>
+<label><input type="checkbox" name="Q8[]" value="Flujo"> Flujo estable</label>
+<label><input type="checkbox" name="Q8[]" value="Menos boca a boca"> Menos boca a boca</label>
+<label><input type="checkbox" name="Q8[]" value="Premium"> Posicionamiento premium</label>
+<label><input type="checkbox" name="Q8[]" value="Alto valor"> Servicios alto valor</label>
+<button type="button" onclick="next()">Siguiente</button>
 </div>
 
-<div class="question">
-<p><strong>¿Hay algo más que deberíamos saber para darte un mejor diagnóstico?</strong></p>
-<textarea name="Comentarios" rows="3" placeholder="Cuéntanos cualquier detalle..." oninput="this.style.height='';this.style.height=this.scrollHeight+'px'"></textarea>
+<!-- EMAIL -->
+<div class="card step hidden">
+<h2>Tu email</h2>
+<input type="email" name="email" required style="width:100%;padding:12px;">
+<button type="submit">Enviar diagnóstico</button>
 </div>
-
-<div class="question">
-<p>Email de contacto</p>
-<input type="email" name="email" required>
-</div>
-
-<button type="submit">Recibir diagnóstico de Smart Office</button>
 
 </form>
 
-<p class="footer">
-Diagnóstico elaborado por Smart Office · Confidencial · Sin compromiso
-</p>
-
 </div>
+
+<script>
+let step = 0;
+const steps = document.querySelectorAll(".step");
+const progress = document.getElementById("progress");
+
+function next() {
+  steps[step].classList.add("hidden");
+  step++;
+  steps[step].classList.remove("hidden");
+
+  progress.style.width = ((step) / (steps.length - 1)) * 100 + "%";
+}
+</script>
 
 </body>
 </html>
